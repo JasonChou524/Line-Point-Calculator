@@ -20,7 +20,7 @@
   <div class="wrapper">
     <h1>點數計算機</h1>
     <input v-model="total" type="number" placeholder="請輸入金額">
-    <ul>
+    <ul v-show="total >= 50">
       <li>花費點數：{{ usePoint }} 點</li>
       <li>支付金額：{{ needPay }} 元</li>
       <li>獲得點數：{{ getPonit }} 點</li>
