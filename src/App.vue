@@ -33,6 +33,7 @@
   .container {
     background-color: #FFCAE7;
     height: 100vh;
+    max-height: -webkit-fill-available; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +45,7 @@
     padding: 50px 0 0 40px;
     background-color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 72px;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     // align-items: center;
