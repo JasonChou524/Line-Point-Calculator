@@ -1,15 +1,17 @@
 <script setup>
   import { computed } from "@vue/reactivity";
   import {ref} from "vue"
+  
+  const rewardPoint = 0.01
   const total = ref()
   const usePoint = computed(() => {
-    return (total.value - Math.ceil((Math.round(total.value * 0.015) - 0.5) / 0.015))
+    return (total.value - Math.ceil((Math.round(total.value * rewardPoint) - 0.5) / rewardPoint))
   })
   const needPay = computed(() => {
-    return (Math.ceil((Math.round(total.value * 0.015) - 0.5) / 0.015))
+    return (Math.ceil((Math.round(total.value * rewardPoint) - 0.5) / rewardPoint))
   })
   const getPonit = computed(() => {
-    return (Math.round(total.value * 0.015))
+    return (Math.round(total.value * rewardPoint))
   })
 </script>
 
