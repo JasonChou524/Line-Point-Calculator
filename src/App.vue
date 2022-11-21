@@ -31,7 +31,7 @@
 
 <style lang="scss" scoped>
   .container {
-    background-color: #FFCAE7;
+    background-color: #A8D3FE;
     height: 100vh;
     max-height: -webkit-fill-available; 
     display: flex;
@@ -40,18 +40,17 @@
   }
   .wrapper{
     box-sizing: border-box;
-    width:  250px;
-    height: 300px;
-    padding: 50px 0 0 40px;
+    width:  300px;
+    height: 350px;
+    padding: 60px 40px;
     background-color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 72px;
     display: flex;
     flex-direction: column;
-    // align-items: center;
+    align-items: center;
     h1 {
-      color: #EE7179;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      font-weight: 400;
       margin-bottom: 10px;
     }
     input {
