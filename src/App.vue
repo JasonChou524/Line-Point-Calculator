@@ -16,15 +16,22 @@
 </script>
 
 <template>
- <div class="container">
-  <div class="wrapper">
-    <h1>點數計算機</h1>
+  <div class="container">
+   <h1>點數計算機</h1>
+  <div class="card">
+    <div class="monitor">
+      <ul>
+        <li>花費點數：{{ usePoint }} 點</li>
+        <li>支付金額：{{ needPay }} 元</li>
+        <li>獲得點數：{{ getPoint }} 點</li>
+      </ul>
+    </div>
     <input v-model="total" type="number" placeholder="請輸入金額">
-    <ul v-show="total >= 50">
-      <li>花費點數：{{ usePoint }} 點</li>
-      <li>支付金額：{{ needPay }} 元</li>
-      <li>獲得點數：{{ getPonit }} 點</li>
-    </ul>
+    <input type="number" placeholder="請輸入回饋趴數(%)">
+    <div class="btn">
+      <button class="confirm">確認</button>
+      <button class="clear">清除</button>
+    </div>
   </div>
  </div>
 </template>
@@ -35,36 +42,84 @@
     height: 100vh;
     max-height: -webkit-fill-available; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    h1 {
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
   }
-  .wrapper{
+  .card{
     box-sizing: border-box;
     width:  300px;
     height: 350px;
-    padding: 60px 40px;
+    padding-top: 40px;
     background-color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 72px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1 {
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
+
     input {
       box-sizing: border-box;
-      width: 150px;
-      height: 30px;
+      width: 224px;
+      height: 39px;
       padding: 5px;
       margin-bottom: 10px;
+      border: 1px solid #AFAFAF;
+      border-radius: 5px;
+      font-size: 20px;
+      &::placeholder {
+        color: #888;
+      }
     }
+  }
+
+  .monitor {
+    box-sizing: border-box;
+    width: 244px;
+    height: 122px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 12px;
+    background-color: #d9d9d9;
+    border: #000 solid 2px;
+    border-radius: 20px;
     ul {
+      display: inline-block;
+      // display: none;
       list-style-type: none;
+      font-size: 20px;
+      font-weight: 400;
       li {
         margin-bottom: 5px;
       }
+    }
+  }
+
+  .btn {
+    margin-top: 10px;
+    button {
+      width: 80px;
+      height: 35px;
+      border: 0px;
+      border-radius: 25px;
+      font-size: 20px;
+      &:active {
+        box-shadow: 0 2px rgb(68, 60, 60);
+        transform: translateY(2px);
+      }
+    }
+    .confirm {
+      background-color: #56bffa;
+      margin-right: 15px;
+      box-shadow: 0 4px #1f698e;
+    }
+    .clear {
+      background-color: #fa5656;
+      box-shadow: 0 4px #7e2b2b;
     }
   }
 </style>
