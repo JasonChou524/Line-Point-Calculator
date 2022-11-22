@@ -7,8 +7,15 @@ const usePoint = ref(0)
 const needPay = ref(0)
 const getPoint = ref(0)
 const showMonitor = ref(false)
+const invalidFeedback = ref(false)
 
 const clickConfirm = () => {
+  if (!total.value || !giveBack.value) {
+    invalidFeedback.value = true
+    return
+  }
+  invalidFeedback.value = false
+
   usePoint.value =
     total.value -
     Math.ceil(
@@ -30,6 +37,7 @@ const clickClear = () => {
   total.value = null
   giveBack.value = null
   showMonitor.value = false
+  invalidFeedback.value = false
 }
 </script>
 
@@ -43,6 +51,7 @@ const clickClear = () => {
           <li>支付金額：{{ needPay }} 元</li>
           <li>獲得點數：{{ getPoint }} 點</li>
         </ul>
+        <div v-show="invalidFeedback" class="invalid-feedback">欄位不能為空</div>
       </div>
       <input v-model="total" type="number" placeholder="請輸入金額" />
       <input v-model="giveBack" type="number" placeholder="請輸入回饋趴數(%)" />
@@ -79,7 +88,6 @@ const clickClear = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   input {
     box-sizing: border-box;
     width: 224px;
@@ -114,6 +122,11 @@ const clickClear = () => {
     li {
       margin-bottom: 5px;
     }
+  }
+  .invalid-feedback {
+    margin-top: 25px;
+    color: red;
+    font-size: 32px;
   }
 }
 
