@@ -73,6 +73,9 @@ const clickClear = () => {
   justify-content: center;
   align-items: center;
   h1 {
+    background-color: #FFC700;
+    border-radius: 10px;
+    padding: 10px 15px;
     font-weight: 400;
     margin-bottom: 10px;
   }
@@ -111,7 +114,7 @@ const clickClear = () => {
   padding-left: 20px;
   padding-top: 12px;
   background-color: #d9d9d9;
-  border: #000 solid 2px;
+  border: #000 solid 3px;
   border-radius: 20px;
   ul {
     display: inline-block;
@@ -137,7 +140,7 @@ const clickClear = () => {
     height: 35px;
     border: 0px;
     border-radius: 25px;
-    color: black;
+    color: #fff;
     font-size: 20px;
     &:active {
       box-shadow: 0 2px rgb(68, 60, 60);
@@ -145,7 +148,7 @@ const clickClear = () => {
     }
   }
   .confirm {
-    background-color: #56bffa;
+    background-color: #00A2FD;
     margin-right: 15px;
     box-shadow: 0 4px #1f698e;
   }
