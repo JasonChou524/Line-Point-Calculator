@@ -116,6 +116,7 @@ const clickClear = () => {
       height: 35px;
       border: 0px;
       border-radius: 25px;
+      color: black;
       font-size: 20px;
       &:active {
         box-shadow: 0 2px rgb(68, 60, 60);
