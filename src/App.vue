@@ -1,18 +1,28 @@
 <script setup>
-  import { computed } from "@vue/reactivity";
-  import {ref} from "vue"
-  
-  const rewardPoint = 0.01
-  const total = ref()
-  const usePoint = computed(() => {
-    return (total.value - Math.ceil((Math.round(total.value * rewardPoint) - 0.5) / rewardPoint))
-  })
-  const needPay = computed(() => {
-    return (Math.ceil((Math.round(total.value * rewardPoint) - 0.5) / rewardPoint))
-  })
-  const getPonit = computed(() => {
-    return (Math.round(total.value * rewardPoint))
-  })
+import {ref} from "vue"
+
+const total = ref(null)
+const giveBack = ref(null)
+const usePoint = ref(0)
+const needPay = ref(0)
+const getPoint = ref(0)
+const showMonitor = ref(false)
+
+const clickConfirm = () => {
+  usePoint.value = total.value - Math.ceil((Math.round(total.value * (giveBack.value / 100)) - 0.5) / (giveBack.value / 100))
+
+  needPay.value = Math.ceil((Math.round(total.value * giveBack.value / 100) - 0.5) / (giveBack.value / 100))
+
+  getPoint.value = Math.round(total.value * (giveBack.value / 100))
+
+  showMonitor.value = true
+}
+
+const clickClear = () => {
+  total.value = null
+  giveBack.value = null
+  showMonitor.value = false
+}
 </script>
 
 <template>
@@ -20,17 +30,17 @@
    <h1>點數計算機</h1>
   <div class="card">
     <div class="monitor">
-      <ul>
+      <ul v-show="showMonitor">
         <li>花費點數：{{ usePoint }} 點</li>
         <li>支付金額：{{ needPay }} 元</li>
         <li>獲得點數：{{ getPoint }} 點</li>
       </ul>
     </div>
     <input v-model="total" type="number" placeholder="請輸入金額">
-    <input type="number" placeholder="請輸入回饋趴數(%)">
+    <input v-model="giveBack" type="number" placeholder="請輸入回饋趴數(%)">
     <div class="btn">
-      <button class="confirm">確認</button>
-      <button class="clear">清除</button>
+      <button @click="clickConfirm" class="confirm">確認</button>
+      <button @click="clickClear" class="clear">清除</button>
     </div>
   </div>
  </div>
